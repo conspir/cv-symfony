@@ -95,13 +95,10 @@ class FamilleCompetence {
 
     /**
      * Set datemodification
-     *
      * @param \DateTime $datemodification
-     *
      * @return FamilleCompetence
      */
-    public function setDatemodification($datemodification)
-    {
+    public function setDatemodification($datemodification) {
         $this->datemodification = $datemodification;
 
         return $this;
@@ -109,23 +106,18 @@ class FamilleCompetence {
 
     /**
      * Get datemodification
-     *
      * @return \DateTime
      */
-    public function getDatemodification()
-    {
+    public function getDatemodification() {
         return $this->datemodification;
     }
 
     /**
      * Set datecreation
-     *
      * @param \DateTime $datecreation
-     *
      * @return FamilleCompetence
      */
-    public function setDatecreation($datecreation)
-    {
+    public function setDatecreation($datecreation) {
         $this->datecreation = $datecreation;
 
         return $this;
@@ -133,11 +125,38 @@ class FamilleCompetence {
 
     /**
      * Get datecreation
-     *
      * @return \DateTime
      */
-    public function getDatecreation()
-    {
+    public function getDatecreation() {
         return $this->datecreation;
+    }
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function avantPersist() {
+        $this->miseajourDatecreation();
+        $this->miseajourDatemodification();
+    }
+
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function avantUpdate() {
+        $this->miseajourDatemodification();
+    }
+
+    /**
+     * Mettre à jour la date de création
+     */
+    public function miseajourDatecreation() {
+        $this->setDatecreation(new \DateTime());
+    }
+
+    /**
+     * Mettre à jour de la date de modification
+     */
+    public function miseajourDatemodification() {
+        $this->setDatemodification(new \DateTime());
     }
 }
