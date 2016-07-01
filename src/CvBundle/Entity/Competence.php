@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
  * Competence
  * @ORM\Table(name="competence")
  * @ORM\Entity(repositoryClass="CvBundle\Repository\CompetenceRepository")
- * @ORM\HasLifecycleCallbacks()
  */
 class Competence {
 
@@ -158,34 +157,5 @@ class Competence {
      */
     public function getDatecreation() {
         return $this->datecreation;
-    }
-
-    /**
-     * @ORM\PrePersist()
-     */
-    public function avantPersist() {
-        $this->miseajourDatecreation();
-        $this->miseajourDatemodification();
-    }
-
-    /**
-     * @ORM\PreUpdate()
-     */
-    public function avantUpdate() {
-        $this->miseajourDatemodification();
-    }
-
-    /**
-     * Mettre à jour la date de création
-     */
-    public function miseajourDatecreation() {
-        $this->setDatecreation(new \DateTime());
-    }
-
-    /**
-     * Mettre à jour de la date de modification
-     */
-    public function miseajourDatemodification() {
-        $this->setDatemodification(new \DateTime());
     }
 }

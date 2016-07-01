@@ -1,4 +1,6 @@
 services:
-#    cv.example:
-#        class: CvBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+  oc_platform.doctrine_listener.application_creation:
+    class: CvBundle\DoctrineListeners\EntityUpdateDatemodification
+    tags:
+      - { name: doctrine.event_listener, event: postPersist }
+      - { name: doctrine.event_listener, event: postUpdate }

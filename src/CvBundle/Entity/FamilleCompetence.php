@@ -130,33 +130,4 @@ class FamilleCompetence {
     public function getDatecreation() {
         return $this->datecreation;
     }
-
-    /**
-     * @ORM\PrePersist()
-     */
-    public function avantPersist() {
-        $this->miseajourDatecreation();
-        $this->miseajourDatemodification();
-    }
-
-    /**
-     * @ORM\PreUpdate()
-     */
-    public function avantUpdate() {
-        $this->miseajourDatemodification();
-    }
-
-    /**
-     * Mettre à jour la date de création
-     */
-    public function miseajourDatecreation() {
-        $this->setDatecreation(new \DateTime());
-    }
-
-    /**
-     * Mettre à jour de la date de modification
-     */
-    public function miseajourDatemodification() {
-        $this->setDatemodification(new \DateTime());
-    }
 }
