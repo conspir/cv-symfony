@@ -1,5 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
-/vendor
-/var
 .idea
+/vendor/
+/var/
 /app/config/parameters.yml
+
