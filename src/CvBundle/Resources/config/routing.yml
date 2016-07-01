@@ -1,3 +1,12 @@
-cv_homepage:
+cv_accueil:
     path:     /
     defaults: { _controller: CvBundle:Home:index }
+cv_experiences:
+    path:     /experiences
+    defaults: { _controller: CvBundle:Home:experiences }
+cv_formations:
+    path:     /formations
+    defaults: { _controller: CvBundle:Home:formations }
+cv_competences:
+    path:     /competences
+    defaults: { _controller: CvBundle:Home:competences}

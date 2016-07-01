@@ -10,4 +10,15 @@ class HomeController extends Controller {
         return $this->render('CvBundle:Home:index.html.twig');
     }
 
+    public function experiencesAction() {
+        return $this->render('CvBundle:Home:experiences.html.twig');
+    }
+
+    public function formationsAction() {
+        return $this->render('CvBundle:Home:formations.html.twig');
+    }
+
+    public function competencesACtion() {
+        return $this->render('CvBundle:Home:competences.html.twig');
+    }
 }
