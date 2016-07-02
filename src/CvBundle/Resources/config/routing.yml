@@ -10,3 +10,6 @@ cv_formations:
 cv_competences:
     path:     /competences
     defaults: { _controller: CvBundle:Home:competences}
+cv_famillecompetence_ajouter:
+    path:     /competences/ajouter
+    defaults: { _controller: CvBundle:FamilleCompetence:ajouter}

@@ -1,24 +1,24 @@
 <?php
 
-namespace CvBundle\Controller;
+namespace cvbundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use symfony\Bundle\Frameworkbundle\Controller\Controller;
 
-class HomeController extends Controller {
+class homecontroller extends controller {
 
-    public function indexAction() {
-        return $this->render('CvBundle:Home:index.html.twig');
+    public function indexaction() {
+        return $this->render('cvbundle:home:index.html.twig');
     }
 
-    public function experiencesAction() {
-        return $this->render('CvBundle:Home:experiences.html.twig');
+    public function experiencesaction() {
+        return $this->render('cvbundle:home:experiences.html.twig');
     }
 
-    public function formationsAction() {
-        return $this->render('CvBundle:Home:formations.html.twig');
+    public function formationsaction() {
+        return $this->render('cvbundle:home:formations.html.twig');
     }
 
-    public function competencesACtion() {
-        return $this->render('CvBundle:Home:competences.html.twig');
+    public function competencesaction() {
+        return $this->render('cvbundle:home:competences.html.twig');
     }
 }
