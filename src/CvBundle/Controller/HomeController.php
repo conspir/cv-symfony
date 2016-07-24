@@ -1,24 +1,41 @@
 <?php
 
-namespace cvbundle\Controller;
+namespace CvBundle\Controller;
 
-use symfony\Bundle\Frameworkbundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class homecontroller extends controller {
+class HomeController extends Controller
+{
 
-    public function indexaction() {
-        return $this->render('cvbundle:home:index.html.twig');
+    public function indexAction() {
+        return $this->render('CvBundle:Home:index.html.twig');
     }
 
-    public function experiencesaction() {
-        return $this->render('cvbundle:home:experiences.html.twig');
+    public function experiencesAction() {
+        return $this->render('CvBundle:Home:experiences.html.twig');
     }
 
-    public function formationsaction() {
-        return $this->render('cvbundle:home:formations.html.twig');
+    public function formationsAction() {
+        return $this->render('CvBundle:Home:formations.html.twig');
     }
 
-    public function competencesaction() {
-        return $this->render('cvbundle:home:competences.html.twig');
+    public function administrationAction() {
+        return $this->render('CvBundle:Home:administration.html.twig');
+    }
+    
+    public function competencesAction() {
+
+        $manager = $this->getDoctrine()->getManager();
+        $repositoryFamilleCompetence = $manager->getRepository('CvBundle:FamilleCompetence');
+//        $repositoryCompetence = $manager->getRepository('CvBundle:FamilleCompetence');
+
+        $listeFamilleCompetence = $repositoryFamilleCompetence->getFamilleCompetenceWithCompetence();
+
+//        foreach ($listeFamilleCompetence as $familleCompetence) {
+//            $listeCompetence = $repositoryCompetence->findBy(['familleCompetence' => $familleCompetence->getId()], ['libelle' => 'desc']);
+//            $familleCompetence->setCompetences($listeCompetence);
+//        }
+
+        return $this->render('CvBundle:Competence:competences.html.twig', ['famillecompetence' => $listeFamilleCompetence]);
     }
 }

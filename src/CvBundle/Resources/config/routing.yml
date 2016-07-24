@@ -1,6 +1,9 @@
 cv_accueil:
     path:     /
     defaults: { _controller: CvBundle:Home:index }
+cv_administration:
+    path:     /administration
+    defaults: { _controller: CvBundle:Home:administration }
 cv_experiences:
     path:     /experiences
     defaults: { _controller: CvBundle:Home:experiences }
@@ -10,6 +13,9 @@ cv_formations:
 cv_competences:
     path:     /competences
     defaults: { _controller: CvBundle:Home:competences}
+cv_competence_ajouter:
+    path:     /ajouter
+    defaults: { _controller: CvBundle:Competence:ajouter }
 cv_famillecompetence_ajouter:
     path:     /competences/ajouter
     defaults: { _controller: CvBundle:FamilleCompetence:ajouter}
