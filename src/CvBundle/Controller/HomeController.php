@@ -4,11 +4,14 @@ namespace CvBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller {
 
     public function indexAction() {
-        return $this->render('CvBundle:Home:index.html.twig');
+        $manager = $this->getDoctrine()->getManager();
+        $repositoryFamilleCompetence = $manager->getRepository('CvBundle:FamilleCompetence');
+
+        $listeFamilleCompetence = $repositoryFamilleCompetence->getFamilleCompetenceWithCompetence();
+        return $this->render('CvBundle:Home:index.html.twig', ['famillecompetence' => $listeFamilleCompetence]);
     }
 
     public function experiencesAction() {
@@ -22,7 +25,7 @@ class HomeController extends Controller
     public function administrationAction() {
         return $this->render('CvBundle:Home:administration.html.twig');
     }
-    
+
     public function competencesAction() {
 
         $manager = $this->getDoctrine()->getManager();

@@ -6,6 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use CvBundle\Entity\Competence;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * FamilleCompetence
  * @ORM\Table(name="famille_competence")

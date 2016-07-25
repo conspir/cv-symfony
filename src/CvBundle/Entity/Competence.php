@@ -10,8 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="CvBundle\Repository\CompetenceRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Competence
-{
+class Competence {
 
     /**
      * Identifiant unique de la competence
@@ -32,7 +31,7 @@ class Competence
     /**
      * Notation de la compétence
      * @var string
-     * @ORM\Column(name="note", type="decimal", precision=1, scale=0)
+     * @ORM\Column(name="note", type="decimal",precision=2,scale=1)
      */
     private $note;
 

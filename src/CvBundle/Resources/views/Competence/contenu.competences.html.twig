@@ -14,120 +14,14 @@
                 <div class="col-md-6 md-margin-bottom-40">
                     <div class="headline">
                         <h2>{{ fc.libelle|capitalize }}</h2>
-
-                        {{ dump(fc) }}
-
                     </div>
-
-
-                    <div>
-                        <h4 class="pull-left">PHP</h4>
-                        <i class="fa fa-lg fa-star-half-o color-yellow pull-right margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <div class="clear-both"></div>
-                    </div>
-
-                    <div>
-                        <h4 class="pull-left">HTML</h4>
-                        <i class="fa fa-lg fa-star-o color-yellow pull-right margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <div class="clear-both"></div>
-                    </div>
-
-                    <div>
-                        <h4 class="pull-left">CSS</h4>
-                        <i class="fa fa-lg fa-star-o color-yellow pull-right margin-top-5"></i>
-                        <i class="fa fa-lg fa-star-half-o color-yellow pull-right margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <div class="clear-both"></div>
-                    </div>
-
-                    <div>
-                        <h4 class="pull-left">JS</h4>
-                        <i class="fa fa-lg fa-star-o color-yellow pull-right margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <div class="clear-both"></div>
-                    </div>
-
-                    <div>
-                        <h4 class="pull-left">JAVA</h4>
-                        <i class="fa fa-lg fa-star-o color-yellow pull-right margin-top-5"></i>
-                        <i class="fa fa-lg fa-star-o color-yellow pull-right margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                        <div class="clear-both"></div>
-                    </div>
+                    {% for competence in fc.competences %}
+                        {#{{ dump(competence) }}#}
+                        {% include("CvBundle:Competence:notation.competence.html.twig") %}
+                    {% endfor %}
                 </div>
             {% endfor %}
         {% endif %}
-
-
-        <div class="col-md-6 md-margin-bottom-40">
-            <div class="headline">
-                <h2>Toto</h2>
-            </div>
-            <div>
-                <h4 class="pull-left">PHP</h4>
-                <i class="fa fa-lg fa-star-half-o color-yellow pull-right margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <div class="clear-both"></div>
-            </div>
-
-            <div>
-                <h4 class="pull-left">HTML</h4>
-                <i class="fa fa-lg fa-star-o color-yellow pull-right margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <div class="clear-both"></div>
-            </div>
-
-            <div>
-                <h4 class="pull-left">CSS</h4>
-                <i class="fa fa-lg fa-star-o color-yellow pull-right margin-top-5"></i>
-                <i class="fa fa-lg fa-star-half-o color-yellow pull-right margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <div class="clear-both"></div>
-            </div>
-
-            <div>
-                <h4 class="pull-left">JS</h4>
-                <i class="fa fa-lg fa-star-o color-yellow pull-right margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <div class="clear-both"></div>
-            </div>
-
-            <div>
-                <h4 class="pull-left">JAVA</h4>
-                <i class="fa fa-lg fa-star-o color-yellow pull-right margin-top-5"></i>
-                <i class="fa fa-lg fa-star-o color-yellow pull-right margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <i class="fa fa-lg fa-star pull-right color-yellow margin-top-5"></i>
-                <div class="clear-both"></div>
-            </div>
-        </div>
     </div>
 </div>
 <!--Fin Compétences-->

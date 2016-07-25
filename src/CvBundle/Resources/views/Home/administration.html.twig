@@ -1,0 +1,31 @@
+{% extends "::layout.html.twig" %}
+
+{% block titre %} - Administration{% endblock %}
+
+ {% block contenu %}
+
+     <!--Titre expériences-->
+     <div class="container content-xs">
+         <div class="headline-center">
+             <h2>Compétences</h2>
+         </div>
+     </div>
+     <!--Fin titre expériences   -->
+
+     <!--Expériences-->
+     <div class="container content-xs">
+         <div class="row">
+             <div class="col-md-12">
+
+                 <a href="{{ path('cv_famillecompetence_ajouter') }}" class="btn-u"><i class="fa fa-plus"></i> Ajouter
+                     une famille de competence</a>
+
+                 <a href="{{ path('cv_competence_ajouter') }}" class="btn-u"><i class="fa fa-plus"></i> Ajouter
+                     une competence</a>
+
+
+             </div>
+         </div>
+     </div>
+
+ {% endblock %}
