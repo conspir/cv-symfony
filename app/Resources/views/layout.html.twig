@@ -113,6 +113,11 @@
                                 Administration
                             </a>
                         </li>
+                        <li {% if app.request.attributes.get('_route') == "cv_connexion" %}class="active"{% endif %}>
+                            <a href="{{ path('cv_connexion') }}">
+                                Connexion
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

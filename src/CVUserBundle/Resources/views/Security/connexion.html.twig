@@ -1,0 +1,47 @@
+{% extends "::layout.html.twig" %}
+
+{% block titre %} - Compétences{% endblock %}
+
+ {% block contenu %}
+
+     <!--Compétences-->
+     <div class="container content-xs">
+         <div class="row margin-bottom-30">
+             <div class="col-md-6 col-md-offset-3 md-margin-bottom-40">
+                 <div class="headline">
+                     <h2>Formulaire de connexion</h2>
+                 </div>
+
+                 {% if error %}
+                     <div class="alert alert-danger">{{ error.message }}</div>
+                 {% endif %}
+
+                 {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
+                 <form action="{{ path('cv_connexion_check') }}" method="post" class="form-horizontal">
+                     <div class="form-group">
+                         <label for="username" class="col-sm-2 control-label">Login :</label>
+                         <div class="col-sm-10">
+                             <input type="text" class="form-control" id="username" name="_username"
+                                    value="{{ last_username }}"/>
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <label for="password" class="col-sm-2 control-label">Mot de passe :</label>
+                         <div class="col-sm-10">
+                             <input type="password" class="form-control" id="password" name="_password"/>
+                         </div>
+                     </div>
+                     <div class="form-group pull-right">
+                         <input type="submit" class="btn-u" value="Connexion"/>
+                     </div>
+                 </form>
+             </div>
+         </div>
+     </div>
+
+     {# S'il y a une erreur, on l'affiche dans un joli cadre #}
+
+
+
+ {% endblock %}
+
