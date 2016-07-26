@@ -14,8 +14,8 @@ cv_competences:
     path:     /competences
     defaults: { _controller: CvBundle:Home:competences}
 cv_competence_ajouter:
-    path:     /competence/ajouter
+    path:     /administration/competence/ajouter
     defaults: { _controller: CvBundle:Competence:ajouter }
 cv_famillecompetence_ajouter:
-    path:     /famillecompetence/ajouter
+    path:     /administration/famillecompetence/ajouter
     defaults: { _controller: CvBundle:FamilleCompetence:ajouter}

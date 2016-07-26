@@ -28,9 +28,7 @@ class CompetenceController extends Controller {
                 $request->getSession()->getFlashBag()->add('notice', 'Compétence enregistrée.');
 
                 return $this->redirectToRoute('cv_administration');
-
             }
-
         }
 
         return $this->render('CvBundle:Competence:ajouter.html.twig', ['form' => $form->createView()]);
