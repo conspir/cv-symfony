@@ -33,13 +33,17 @@
     <!-- Timeline -->
     <link rel="stylesheet" href="{{ asset('assets/css/pages/shortcode_timeline2.css') }}">
 
-    <!-- CSS Customization -->
-    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
-
     <!-- Cube Portfolio -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css') }}">
     <link rel="stylesheet"
           href="{{ asset('assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css') }}">
+
+    {#Sky Form #}
+    <link rel="stylesheet" href="{{ asset('assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css') }}">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
 
 </head>
 
@@ -69,6 +73,7 @@
                 </div>
             </div>
             <div class="clearfix"></div>
+
             <!--Liste de navigation-->
             <div class="collapse navbar-collapse navbar-responsive-collapse">
                 <div class="container">
@@ -108,13 +113,18 @@
                                 Contact
                             </a>
                         </li>
-                        <li {% if app.request.attributes.get('_route') == "cv_connexion" %}class="active"{% endif %}>
-                            <a href="{{ path('cv_connexion') }}">
-                                Connexion
-                            </a>
-                        </li>
-                        <li {% if app.request.attributes.get('_route') == "cv_administration" %}class="active"{% endif %}>
-                            <a href="{{ path('cv_administration') }}"> <i class="fa fa-gear"></i></a>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li {% if app.request.attributes.get('_route') == "cv_administration" %}class="active"{% endif %}>
+                                <a href="{{ path('cv_administration') }}"> <i class="fa fa-gear"></i></a>
+                            </li>
+                        {% endif %}
+
+                        <li>
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                            {% else %}
+                                <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                            {% endif %}
                         </li>
                     </ul>
                 </div>
@@ -124,50 +134,56 @@
     <!--Fin header-->
 
     <!--Descriptif-->
-    <div class="bg-color-light">
-        <div class="container content-xs">
-            <div class="row">
-                <div class="col-xs-12 col-sm-3 text-center">
-                    <img src="{{ asset('assets/img/profil/gabriel.jpg') }}" alt="" class="img-responsive img-bordered">
-                </div>
-                <div class="col-xs-12 col-sm-9">
-                    <p class="text-justify">Passionné d'informatique depuis longtemps, j'ai choisi de devenir
-                        concépteur d'application. Spécialisé en <span class="color-green">PHP</span>, je dispose aussi
-                        de bonnes connaissances dans les technologies <span class="color-green">HTML/CSS/JS</span>.
-                        Je pratique la veille technologique dans différents domaines, les langages que je pratique, les
-                        frameworks <span class="color-green">PHP</span>/<span
-                                class="color-green">JS</span>, les bases de données mais aussi l'<span
-                                class="color-green">UI/UX</span> car j'accorde une grande importance à l'ergonomie
-                        des applcations que je réalise.
-                    </p>
-                    <p class="text-justify">De part mes différentes missions, je suis fortement sensibilisé au metier du
-                        commerce (retail, e-commerce, commerce omni-canal et multi-canal...)</p>
-                    <div class="pull-right">
-                        <button class="btn-u btn-u-xs" type="button">En savoir plus...</button>
+    {% block presentation %}
+        <div class="bg-color-light">
+            <div class="container content-xs">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 text-center">
+                        <img src="{{ asset('assets/img/profil/gabriel.jpg') }}" alt=""
+                             class="img-responsive img-bordered">
                     </div>
+                    <div class="col-xs-12 col-sm-9">
+                        <p class="text-justify">Passionné d'informatique depuis longtemps, j'ai choisi de devenir
+                            concépteur d'application. Spécialisé en <span class="color-green">PHP</span>, je dispose
+                            aussi
+                            de bonnes connaissances dans les technologies <span class="color-green">HTML/CSS/JS</span>.
+                            Je pratique la veille technologique dans différents domaines, les langages que je pratique,
+                            les
+                            frameworks <span class="color-green">PHP</span>/<span
+                                    class="color-green">JS</span>, les bases de données mais aussi l'<span
+                                    class="color-green">UI/UX</span> car j'accorde une grande importance à l'ergonomie
+                            des applcations que je réalise.
+                        </p>
+                        <p class="text-justify">De part mes différentes missions, je suis fortement sensibilisé au
+                            metier du
+                            commerce (retail, e-commerce, commerce omni-canal et multi-canal...)</p>
+                        <div class="pull-right">
+                            <button class="btn-u btn-u-xs" type="button">En savoir plus...</button>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-3 color-dark">
-                    <span class="margin-left-10">&nbsp;&nbsp;30 ans | Véhiculé | Nantes</span>
-                </div>
-                <div class="col-xs-12 col-sm-9">
-                    <div>
-                        <span class="label label-u">Analyse et conception</span>
-                        <span class="label label-u">Développement</span>
-                        <span class="label label-u">Test</span>
-                        <span class="label label-u">Gestion de projet</span>
-                        <span class="label label-u">Management</span>
-                        <span class="label label-u">UX</span>
-                        <span class="label label-u">ISO9001</span>
-                        <span class="label label-u">ISO25051</span>
-                        <span class="label label-u">NF525</span>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 color-dark">
+                        <span class="margin-left-10">&nbsp;&nbsp;30 ans | Véhiculé | Nantes</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-9">
+                        <div>
+                            <span class="label label-u">Analyse et conception</span>
+                            <span class="label label-u">Développement</span>
+                            <span class="label label-u">Test</span>
+                            <span class="label label-u">Gestion de projet</span>
+                            <span class="label label-u">Management</span>
+                            <span class="label label-u">UX</span>
+                            <span class="label label-u">ISO9001</span>
+                            <span class="label label-u">ISO25051</span>
+                            <span class="label label-u">NF525</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endblock %}
     <!--Fin descriptif-->
 
     {% block contenu %}

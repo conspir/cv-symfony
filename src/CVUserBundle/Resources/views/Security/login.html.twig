@@ -1,0 +1,202 @@
+{#{% extends "FOSUserBundle::layout.html.twig" %}#}
+
+{#{% trans_default_domain 'FOSUserBundle' %}#}
+
+{#{% block presentation %}#}
+{#{% endblock %}#}
+
+{#{% block fos_user_content %}#}
+
+    {#<!--Titre expériences-->#}
+    {#<div class="container content-xs">#}
+        {#<div class="headline-center">#}
+            {#<h2>Connexion</h2>#}
+        {#</div>#}
+    {#</div>#}
+    {#<!--Fin titre expériences   -->#}
+
+    {#<!--Expériences-->#}
+    {#<div class="container content-xs">#}
+        {#<div class="row">#}
+            {#<div class="col-md-6 col-md-offset-3">#}
+
+                {#{% if error %}#}
+                    {#<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
+                {#{% endif %}#}
+
+                {#<form action="{{ path("fos_user_security_check") }}" method="post" class="sky-form">#}
+                    {#<input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>#}
+
+                    {#<section>#}
+                        {#<label class="label" for="username">{{ 'security.login.username'|trans }}</label>#}
+                        {#<label class="input">#}
+                            {#<input type="text" class="" id="username" name="_username"#}
+                                   {#value="{{ last_username }}"#}
+                                   {#required="required"/>#}
+                        {#</label>#}
+                    {#</section>#}
+
+                    {#<section>#}
+                        {#<label class="label" for="password">{{ 'security.login.password'|trans }}</label>#}
+                        {#<label class="input">#}
+                            {#<input type="password" class="" id="password" name="_password"#}
+                                   {#required="required"/>#}
+                        {#</label>#}
+                    {#</section>#}
+
+                    {#<label class="checkbox">#}
+                        {#<input type="checkbox" id="remember_me" name="_remember_me"#}
+                               {#value="on"><i></i>{{ 'security.login.remember_me'|trans }}#}
+                    {#</label>#}
+
+                    {#<section class="margin-top-20">#}
+                        {#<button type="submit" class="btn-u" id="_submit" name="_submit"#}
+                                {#value="{{ 'security.login.submit'|trans }}">{{ 'security.login.submit'|trans }}#}
+                        {#</button>#}
+                    {#</section>#}
+
+                {#</form>#}
+
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+{#{% endblock fos_user_content %}#}
+
+{#{% extends "FOSUserBundle::layout.html.twig" %}#}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"> <!--<![endif]-->
+<head>
+    <title>Login 1 | Unify - Responsive Website Template</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Web Fonts -->
+    <link rel='stylesheet' type='text/css'
+          href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="{{ asset('assets/plugins/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/line-icons/line-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css') }}">
+
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="{{ asset('assets/css/pages/page_log_reg_v2.css') }}">
+
+    {#Sky Form #}
+    <link rel="stylesheet" href="{{ asset('assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css') }}">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+</head>
+
+<body>
+
+{% block presentation %}
+{% endblock %}
+
+{% block fos_user_content %}
+
+<!--=== Content Part ===-->
+<div class="container">
+    <!--Reg Block-->
+    <div class="reg-block">
+        <div class="reg-block-header">
+            <h2>Se connecter</h2>
+        </div>
+
+        <form action="{{ path("fos_user_security_check") }}" method="post" class="sky-form">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+
+            <section>
+                <label class="label" for="username">{{ 'security.login.username'|trans }}</label>
+                <label class="input">
+                    <input type="text" class="" id="username" name="_username"
+                           value="{{ last_username }}"
+                           required="required"/>
+                </label>
+            </section>
+
+            <section>
+                <label class="label" for="password">{{ 'security.login.password'|trans }}</label>
+                <label class="input">
+                    <input type="password" class="" id="password" name="_password"
+                           required="required"/>
+                </label>
+            </section>
+
+            <label class="checkbox">
+                <input type="checkbox" id="remember_me" name="_remember_me"
+                       value="on"><i></i>{{ 'security.login.remember_me'|trans }}
+            </label>
+
+            <section class="margin-top-20">
+                <button type="submit" class="btn-u" id="_submit" name="_submit"
+                        value="{{ 'security.login.submit'|trans }}">{{ 'security.login.submit'|trans }}
+                </button>
+            </section>
+
+        </form>
+
+        <hr>
+
+        <a href="{{ path('fos_user_resetting_check_email') }}"> Mot de passe oublié ?</a>
+    </div>
+    <!--End Reg Block-->
+</div><!--/container-->
+<!--=== End Content Part ===-->
+
+<!-- JS Global Compulsory -->
+<script type="text/javascript" src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/plugins/jquery/jquery-migrate.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="{{ asset('assets/plugins/back-to-top.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/plugins/backstretch/jquery.backstretch.min.js') }}"></script>
+<!-- JS Customization -->
+<script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script>
+<!-- JS Page Level -->
+<script type="text/javascript" src="{{ asset('assets/js/app.js') }}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+    });
+</script>
+<script type="text/javascript">
+    $.backstretch([
+        "{{ asset('assets/img/bg/19.jpg') }}",
+        "{{ asset('assets/img/bg/18.jpg') }}"
+    ], {
+        fade: 1000,
+        duration: 7000
+    });
+</script>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="{{ asset('assets/plugins/respond.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/plugins/html5shiv.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets/plugins/placeholder-IE-fixes.js') }}"></script>
+<![endif]-->
+
+</body>
+</html>
+
+{% endblock fos_user_content %}

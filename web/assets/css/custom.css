@@ -1,3 +1,12 @@
 .margin-top-5 {
     margin-top: 5px;
 }
+
+.sky-form {
+    box-shadow: none;
+    border: 0 solid #eee;
+}
+
+body > div.wrapper > div.header-v4 > div > div.collapse.navbar-collapse.navbar-responsive-collapse > div > ul > li > a {
+    padding-right: 20px;
+}

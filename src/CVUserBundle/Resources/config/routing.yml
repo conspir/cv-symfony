@@ -1,7 +1,0 @@
-
-cv_connexion:
-    path:     /connexion
-    defaults: { _controller: CVUserBundle:Security:connexion }
-cv_connexion_check:
-    path:     /controle-connexion
-    defaults: { _controller: CVUserBundle:Security:connexionCheck}

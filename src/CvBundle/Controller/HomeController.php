@@ -27,18 +27,7 @@ class HomeController extends Controller {
     }
 
     public function competencesAction() {
-
-        $manager = $this->getDoctrine()->getManager();
-        $repositoryFamilleCompetence = $manager->getRepository('CvBundle:FamilleCompetence');
-//        $repositoryCompetence = $manager->getRepository('CvBundle:FamilleCompetence');
-
-        $listeFamilleCompetence = $repositoryFamilleCompetence->getFamilleCompetenceWithCompetence();
-
-//        foreach ($listeFamilleCompetence as $familleCompetence) {
-//            $listeCompetence = $repositoryCompetence->findBy(['familleCompetence' => $familleCompetence->getId()], ['libelle' => 'desc']);
-//            $familleCompetence->setCompetences($listeCompetence);
-//        }
-
-        return $this->render('CvBundle:Competence:competences.html.twig', ['famillecompetence' => $listeFamilleCompetence]);
+        $listeFamilleCompetence = $this->getDoctrine()->getManager()->getRepository('CvBundle:FamilleCompetence')->getFamilleCompetenceWithCompetence();
+        return $this->render('CvBundle:Competence:competences.html.twig', ['famillecompetence' => $listeFamilleCompetence,]);
     }
 }

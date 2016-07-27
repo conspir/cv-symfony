@@ -21,10 +21,10 @@ security:
         anonymous:    true
         provider:     main
         form_login:
-          login_path: cv_connexion
-          check_path: cv_connexion_check
+          login_path: fos_user_security_login
+          check_path: fos_user_security_check
         logout:
-          path:       cv_deconnexion
+          path:       fos_user_security_logout
           target:     /
         remember_me:
           secret:     %secret%
