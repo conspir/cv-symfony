@@ -189,7 +189,4 @@ class Competence {
         $this->setDatemodification(new \DateTime());
     }
 
-    public static function getTableToString() {
-        return 'utilisateur';
-    }
 }

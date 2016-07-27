@@ -19,3 +19,6 @@ cv_competence_ajouter:
 cv_famillecompetence_ajouter:
     path:     /administration/famillecompetence/ajouter
     defaults: { _controller: CvBundle:FamilleCompetence:ajouter}
+cv_tag_ajouter:
+    path:     /administration/tag/ajouter
+    defaults: { _controller: CvBundle:Tag:ajouter}
