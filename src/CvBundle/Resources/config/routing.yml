@@ -25,3 +25,6 @@ cv_tag_ajouter:
 cv_entreprise_ajouter:
     path:     /administration/entreprise/ajouter
     defaults: { _controller: CvBundle:Entreprise:ajouter }
+cv_experience_ajouter:
+    path:     /administration/experience/ajouter
+    defaults: { _controller: CvBundle:Experience:ajouter}

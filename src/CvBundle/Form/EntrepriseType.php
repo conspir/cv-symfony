@@ -23,8 +23,7 @@ class EntrepriseType extends AbstractType {
             ->add('ville', TextType::class)
             ->add('telephone', TextType::class)
             ->add('web', TextType::class)
-            ->add('image', FileType::class)
-            ->add('ajouter', SubmitType::class);
+            ->add('image', FileType::class);
     }
 
     /**
