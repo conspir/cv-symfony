@@ -44,11 +44,10 @@ class Experience {
     private $description;
 
     /**
-     * @var Tag[]
-     * @ORM\ManyToMany(targetEntity="CvBundle\Entity\Tag",mappedBy="experiences")
-     * @ORM\JoinColumn(nullable=true)
+     * @var Entreprise
+     * @ORM\OneToOne(targetEntity="CvBundle\Entity\Entreprise", mappedBy="experience")
      */
-    private $tags;
+    private $entreprise;
 
     /**
      * Get id
@@ -166,5 +165,29 @@ class Experience {
      */
     public function getTags() {
         return $this->tags;
+    }
+
+    /**
+     * Set entreprise
+     *
+     * @param \CvBundle\Entity\Entreprise $entreprise
+     *
+     * @return Experience
+     */
+    public function setEntreprise(\CvBundle\Entity\Entreprise $entreprise = null)
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get entreprise
+     *
+     * @return \CvBundle\Entity\Entreprise
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
     }
 }

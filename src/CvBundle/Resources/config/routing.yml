@@ -22,3 +22,6 @@ cv_famillecompetence_ajouter:
 cv_tag_ajouter:
     path:     /administration/tag/ajouter
     defaults: { _controller: CvBundle:Tag:ajouter}
+cv_entreprise_ajouter:
+    path:     /administration/entreprise/ajouter
+    defaults: { _controller: CvBundle:Entreprise:ajouter }
