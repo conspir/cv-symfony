@@ -19,6 +19,18 @@ class ExperienceController extends Controller {
 
         if ($request->isMethod('POST')) {
 
+            $image = $experience->getEntreprise()->getImage();
+
+            $imagename = md5(uniqid()) . '.' . $image->getExtension();
+
+            $image->move($this->getParameter('imagedir'), $imagename);
+
+            $entreprise = $experience->getEntreprise();
+
+            $entreprise->setImage($image);
+
+            $experience->setEntreprise($entreprise);
+
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($experience);
             $em->flush();

@@ -45,7 +45,8 @@ class Experience {
 
     /**
      * @var Entreprise
-     * @ORM\OneToOne(targetEntity="CvBundle\Entity\Entreprise", mappedBy="experience")
+     * @ORM\OneToOne(targetEntity="CvBundle\Entity\Entreprise", mappedBy="experience", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $entreprise;
 
@@ -169,13 +170,10 @@ class Experience {
 
     /**
      * Set entreprise
-     *
      * @param \CvBundle\Entity\Entreprise $entreprise
-     *
      * @return Experience
      */
-    public function setEntreprise(\CvBundle\Entity\Entreprise $entreprise = null)
-    {
+    public function setEntreprise(\CvBundle\Entity\Entreprise $entreprise = NULL) {
         $this->entreprise = $entreprise;
 
         return $this;
@@ -183,11 +181,9 @@ class Experience {
 
     /**
      * Get entreprise
-     *
      * @return \CvBundle\Entity\Entreprise
      */
-    public function getEntreprise()
-    {
+    public function getEntreprise() {
         return $this->entreprise;
     }
 }

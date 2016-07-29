@@ -58,12 +58,6 @@ class Entreprise {
     private $web;
 
     /**
-     * @var Experience
-     * @ORM\OneToOne(targetEntity="CvBundle\Entity\Experience", mappedBy="entreprise")
-     */    
-    private $experience;
-
-    /**
      * @var File
      * @ORM\Column(type="string")
      */
@@ -212,13 +206,10 @@ class Entreprise {
 
     /**
      * Set experience
-     *
      * @param \CvBundle\Entity\Experience $experience
-     *
      * @return Entreprise
      */
-    public function setExperience(\CvBundle\Entity\Experience $experience = null)
-    {
+    public function setExperience(\CvBundle\Entity\Experience $experience = NULL) {
         $this->experience = $experience;
 
         return $this;
@@ -226,11 +217,9 @@ class Entreprise {
 
     /**
      * Get experience
-     *
      * @return \CvBundle\Entity\Experience
      */
-    public function getExperience()
-    {
+    public function getExperience() {
         return $this->experience;
     }
 }
