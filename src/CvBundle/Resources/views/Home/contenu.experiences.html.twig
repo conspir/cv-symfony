@@ -6,14 +6,13 @@
 </div>
 <!--Fin titre expériences   -->
 
+
 <!--Expériences-->
 <div class="container content-xs">
     <div class="row">
         <div class="col-md-12">
             <ul class="timeline-v2">
-
                 {% for experience in experiences %}
-
                     <li class="equal-height-columns">
                         <div class="cbp_tmtime equal-height-column"><span>02/2013</span> <span>Aujourd'hui</span></div>
                         <i class="cbp_tmicon rounded-x hidden-xs"></i>
@@ -21,7 +20,8 @@
                             <h2>{{ experience.titre }}</h2>
                             <div class="row margin-bottom-10">
                                 <div class="col-md-3 color-dark">
-                                    <img class="img-responsive" src="{{ asset('assets/img/enterprise/thalassa.png') }}"
+                                    <img class="img-responsive"
+                                         src="{{ asset('upload/image/' ~ experience.entreprise.image) }}"
                                          alt="">
                                     <div class="text-center"><a style="color : #72C02C!important"
                                                                 href="http://{{ experience.entreprise.web }}">{{ experience.entreprise.web }}</a>

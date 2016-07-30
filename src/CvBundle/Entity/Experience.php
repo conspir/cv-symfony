@@ -9,7 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="experience")
  * @ORM\Entity(repositoryClass="CvBundle\Repository\ExperienceRepository")
  */
-class Experience {
+class Experience
+{
 
     /**
      * @var int
@@ -45,7 +46,7 @@ class Experience {
 
     /**
      * @var Entreprise
-     * @ORM\OneToOne(targetEntity="CvBundle\Entity\Entreprise", mappedBy="experience", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="CvBundle\Entity\Entreprise", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $entreprise;

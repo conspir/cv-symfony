@@ -34,6 +34,12 @@ class Mission
      * @ORM\Column(name="descritpion", type="text")
      */
     private $descritpion;
+    
+    /**
+     * @var Experience
+     * @ORM\ManyToOne(targetEntity="CvBundle\Entity\Experience")
+     */
+    private $experience;
 
 
     /**
@@ -93,5 +99,28 @@ class Mission
     {
         return $this->descritpion;
     }
-}
 
+    /**
+     * Set experience
+     *
+     * @param \CvBundle\Entity\Experience $experience
+     *
+     * @return Mission
+     */
+    public function setExperience(\CvBundle\Entity\Experience $experience = null)
+    {
+        $this->experience = $experience;
+
+        return $this;
+    }
+
+    /**
+     * Get experience
+     *
+     * @return \CvBundle\Entity\Experience
+     */
+    public function getExperience()
+    {
+        return $this->experience;
+    }
+}

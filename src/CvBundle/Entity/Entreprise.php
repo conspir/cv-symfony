@@ -11,7 +11,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile as File;
  * @ORM\Table(name="entreprise")
  * @ORM\Entity(repositoryClass="CvBundle\Repository\EntrepriseRepository")
  */
-class Entreprise {
+class Entreprise
+{
 
     /**
      * @var int
@@ -58,7 +59,6 @@ class Entreprise {
     private $web;
 
     /**
-     * @var File
      * @ORM\Column(type="string")
      */
     private $image;
@@ -187,10 +187,10 @@ class Entreprise {
 
     /**
      * Set image
-     * @param File $image
+     * @param string $image
      * @return Entreprise
      */
-    public function setImage(File $image) {
+    public function setImage($image) {
         $this->image = $image;
 
         return $this;

@@ -7,7 +7,8 @@ use CvBundle\Form\ExperienceType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class ExperienceController extends Controller {
+class ExperienceController extends Controller
+{
 
     public function ajouterAction(Request $request) {
 
@@ -27,7 +28,7 @@ class ExperienceController extends Controller {
 
             $entreprise = $experience->getEntreprise();
 
-            $entreprise->setImage($image);
+            $entreprise->setImage($imagename);
 
             $experience->setEntreprise($entreprise);
 
@@ -46,10 +47,11 @@ class ExperienceController extends Controller {
     }
 
     public function supprimerTousAction(Request $request) {
-        $experiences = $this->getDoctrine()->getRepository('CvBundle:Experience');
+        $experiences = $this->getDoctrine()->getRepository('CvBundle:Experience')->findAll();
         foreach ($experiences as $experience) {
             $this->getDoctrine()->getEntityManager()->remove($experience);
         }
+        $this->getDoctrine()->getEntityManager()->flush();
         $request->getSession()->getFlashBag()->add('notice', 'Les expériences ont été supprimées');
         return $this->redirectToRoute('cv_administration');
     }
