@@ -15,7 +15,8 @@ class HomeController extends Controller {
     }
 
     public function experiencesAction() {
-        return $this->render('CvBundle:Home:experiences.html.twig');
+        $listeExperiences = $this->getDoctrine()->getManager()->getRepository('CvBundle:Experience')->findAll();
+        return $this->render('CvBundle:Home:experiences.html.twig', ['experiences' => $listeExperiences]);
     }
 
     public function formationsAction() {

@@ -44,4 +44,13 @@ class ExperienceController extends Controller {
         return $this->render('CvBundle:Experience:ajouter.html.twig', ['form' => $form->createView()]);
 
     }
+
+    public function supprimerTousAction(Request $request) {
+        $experiences = $this->getDoctrine()->getRepository('CvBundle:Experience');
+        foreach ($experiences as $experience) {
+            $this->getDoctrine()->getEntityManager()->remove($experience);
+        }
+        $request->getSession()->getFlashBag()->add('notice', 'Les expériences ont été supprimées');
+        return $this->redirectToRoute('cv_administration');
+    }
 }

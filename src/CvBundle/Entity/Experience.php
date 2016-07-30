@@ -45,7 +45,7 @@ class Experience {
 
     /**
      * @var Entreprise
-     * @ORM\OneToOne(targetEntity="CvBundle\Entity\Entreprise", mappedBy="experience", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="CvBundle\Entity\Entreprise", mappedBy="experience", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $entreprise;
