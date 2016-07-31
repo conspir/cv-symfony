@@ -14,7 +14,8 @@
             <ul class="timeline-v2">
                 {% for experience in experiences %}
                     <li class="equal-height-columns">
-                        <div class="cbp_tmtime equal-height-column"><span>02/2013</span> <span>Aujourd'hui</span></div>
+                        <div class="cbp_tmtime equal-height-column"><span>{{ experience.datedebut|date('m/Y') }}</span>
+                            <span>{{ experience.datefin|date('m/Y') }}</span></div>
                         <i class="cbp_tmicon rounded-x hidden-xs"></i>
                         <div class="cbp_tmlabel equal-height-column">
                             <h2>{{ experience.titre }}</h2>
@@ -24,7 +25,7 @@
                                          src="{{ asset('upload/image/' ~ experience.entreprise.image) }}"
                                          alt="">
                                     <div class="text-center"><a style="color : #72C02C!important"
-                                                                href="http://{{ experience.entreprise.web }}">{{ experience.entreprise.web }}</a>
+                                                                href="http://{{ experience.entreprise.web }}">http://{{ experience.entreprise.web }}</a>
                                     </div>
                                     <div class="text-center">
                                         {{ experience.entreprise.adresse }} {{ experience.entreprise.codepostal }} {{ experience.entreprise.ville }}
@@ -35,39 +36,16 @@
                                         {{ experience.description }}
                                     </p>
                                     <ul class="list-unstyled">
-                                        <li>
-                                            <div>
-                                                <h5><strong>Mission 1</strong></h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at
-                                                    commodi dicta, doloribus eius ex facilis laboriosam minima neque
-                                                    nihil
-                                                    obcaecati provident qui reiciendis rem repellat repudiandae rerum
-                                                    soluta
-                                                    tempore.</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <h5><strong>Mission 2</strong></h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at
-                                                    commodi dicta, doloribus eius ex facilis laboriosam minima neque
-                                                    nihil
-                                                    obcaecati provident qui reiciendis rem repellat repudiandae rerum
-                                                    soluta
-                                                    tempore.</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <h5><strong>Mission 3</strong></h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at
-                                                    commodi dicta, doloribus eius ex facilis laboriosam minima neque
-                                                    nihil
-                                                    obcaecati provident qui reiciendis rem repellat repudiandae rerum
-                                                    soluta
-                                                    tempore.</p>
-                                            </div>
-                                        </li>
+
+                                        {% for mission in experience.mission %}
+                                            <li>
+                                                <div>
+                                                    <h5><strong>mission.titre</strong></h5>
+                                                    <p>mission.description</p>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+
                                     </ul>
                                 </div>
                             </div>

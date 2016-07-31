@@ -20,14 +20,14 @@ class Mission
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
-
+    
     /**
      * @var string
      *
@@ -37,21 +37,19 @@ class Mission
     
     /**
      * @var Experience
-     * @ORM\ManyToOne(targetEntity="CvBundle\Entity\Experience")
+     * @ORM\ManyToOne(targetEntity="CvBundle\Entity\Experience",inversedBy="mission")
      */
     private $experience;
-
-
+    
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
-
+    
     /**
      * Set titre
      *
@@ -59,23 +57,21 @@ class Mission
      *
      * @return Mission
      */
-    public function setTitre($titre)
-    {
+    public function setTitre($titre) {
         $this->titre = $titre;
-
+        
         return $this;
     }
-
+    
     /**
      * Get titre
      *
      * @return string
      */
-    public function getTitre()
-    {
+    public function getTitre() {
         return $this->titre;
     }
-
+    
     /**
      * Set descritpion
      *
@@ -83,23 +79,21 @@ class Mission
      *
      * @return Mission
      */
-    public function setDescritpion($descritpion)
-    {
+    public function setDescritpion($descritpion) {
         $this->descritpion = $descritpion;
-
+        
         return $this;
     }
-
+    
     /**
      * Get descritpion
      *
      * @return string
      */
-    public function getDescritpion()
-    {
+    public function getDescritpion() {
         return $this->descritpion;
     }
-
+    
     /**
      * Set experience
      *
@@ -107,20 +101,18 @@ class Mission
      *
      * @return Mission
      */
-    public function setExperience(\CvBundle\Entity\Experience $experience = null)
-    {
+    public function setExperience(\CvBundle\Entity\Experience $experience = null) {
         $this->experience = $experience;
-
+        
         return $this;
     }
-
+    
     /**
      * Get experience
      *
      * @return \CvBundle\Entity\Experience
      */
-    public function getExperience()
-    {
+    public function getExperience() {
         return $this->experience;
     }
 }

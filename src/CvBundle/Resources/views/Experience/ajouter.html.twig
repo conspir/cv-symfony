@@ -6,9 +6,10 @@
         <div class="headline-center">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-                    <h2>Formulaire entreprise</h2>
+                    <h2>Formulaire expérience</h2>
 
                     {{ form_start(form,{'attr':{'class':'form-horizontal'}}) }}
+
 
                     <div class="form-group">
 
@@ -58,13 +59,102 @@
 
                     </div>
 
+                    <div class="headline-center">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3">
+                                <h2>Entreprise</h2>
+                            </div>
+                        </div>
+                    </div>
+
                     {{ form_widget(form.entreprise) }}
+
+                    <div class="headline-center">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3">
+                                <h2>Missions</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="well">
+
+                        {{ form_widget(form.mission) }}
+                        <div class="text-left">
+                            <a href="#" id="add_missions" class="btn-u"> Ajouter une mission</a>
+                        </div>
+                    </div>
 
                     <div class="form-group">
 
                         {{ form_widget(form.ajouter,{'attr':{'class':'btn-u'}}) }}
 
                     </div>
+
+                    <script src="{{ asset('assets/plugins/jquery/jquery.js') }}"></script>
+
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+
+                            var container = $('#experience_mission');
+                            var index = container.find(':input').length;
+
+                            $('#add_missions').click(function (event) {
+
+                                ajouterMission(container);
+
+                                event.preventDefault();
+                                return false;
+                            });
+
+                            if (index == 0) {
+                                ajouterMission(container)
+                            } else {
+                                container.children('div').each(function () {
+                                    ajouterLienSuppression($(this))
+                                });
+                            }
+
+                            function ajouterMission($container) {
+
+                                var template = $container.attr('data-prototype')
+                                        .replace(/__name__label__/g, 'Mission n°' + (index + 1))
+                                        .replace(/__name__/g, index);
+
+                                // On crée un objet jquery qui contient ce template
+                                var $prototype = $(template);
+
+                                // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
+                                ajouterLienSuppression($prototype);
+
+                                // On ajoute le prototype modifié à la fin de la balise <div>
+                                $container.append($prototype);
+
+                                // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
+                                index++;
+                            }
+
+                            // La fonction qui ajoute un lien de suppression d'une catégorie
+                            function ajouterLienSuppression($prototype) {
+                                // Création du lien
+                                var $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+
+                                // Ajout du lien
+                                $prototype.append($deleteLink);
+
+                                // Ajout du listener sur le clic du lien pour effectivement supprimer la catégorie
+                                $deleteLink.click(function (e) {
+                                    $prototype.remove();
+
+                                    e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                                    return false;
+                                });
+
+                            }
+
+                        });
+                    </script>
+
 
                     {{ form_rest(form) }}
 
